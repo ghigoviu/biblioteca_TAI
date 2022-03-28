@@ -28,6 +28,10 @@ Route::get('/nosotros', function () {
     return view('about');
 })->name('about');  
 
-Route::get('/catalogo',  [LibroController::class, "index"]);  
+//Route::get('/catalogo',  [LibroController::class]);  
+Route::resource('libros',  LibroController::class);  
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');   
+Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

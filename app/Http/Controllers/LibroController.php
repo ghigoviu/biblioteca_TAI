@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Libro;
 use Illuminate\Http\Request;
 
+/**
+ * Class LibroController
+ * @package App\Http\Controllers
+ */
 class LibroController extends Controller
 {
     /**
@@ -14,10 +18,10 @@ class LibroController extends Controller
      */
     public function index()
     {
-        //Mostrar todos los libros 
-        $productos =Libro::all();
-        return view('catalogo')->with('productos', $productos);
+        $libros = Libro::paginate();
 
+        return view('libro.index', compact('libros'))
+            ->with('i', (request()->input('page', 1) - 1) * $libros->perPage());
     }
 
     /**
@@ -27,62 +31,79 @@ class LibroController extends Controller
      */
     public function create()
     {
-        //
+        $libro = new Libro();
+        return view('libro.create', compact('libro'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        request()->validate(Libro::$rules);
+
+        $libro = Libro::create($request->all());
+
+        return redirect()->route('libros.index')
+            ->with('success', 'Libro created successfully.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Libro  $libro
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Libro $libro)
+    public function show($id)
     {
-        //
+        $libro = Libro::find($id);
+
+        return view('libro.show', compact('libro'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Libro  $libro
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Libro $libro)
+    public function edit($id)
     {
-        //
+        $libro = Libro::find($id);
+
+        return view('libro.edit', compact('libro'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Libro  $libro
+     * @param  \Illuminate\Http\Request $request
+     * @param  Libro $libro
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Libro $libro)
     {
-        //
+        request()->validate(Libro::$rules);
+
+        $libro->update($request->all());
+
+        return redirect()->route('libros.index')
+            ->with('success', 'Libro updated successfully');
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Libro  $libro
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
      */
-    public function destroy(Libro $libro)
+    public function destroy($id)
     {
-        //
+        $libro = Libro::find($id)->delete();
+
+        return redirect()->route('libros.index')
+            ->with('success', 'Libro deleted successfully');
     }
 }
