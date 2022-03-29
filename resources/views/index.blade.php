@@ -10,50 +10,81 @@
     
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light-dark bg-primary">
-        <ul class="nav navbar-nav">
+    <nav class="navbar navbar-expand-md navbar-light bg-blue shadow-sm">
+        <div class="container"> 
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-            <li class="nav-item">
-                <a class="nav-link" href="#">Biblioteca</a>
-            </li>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Left Side Of Navbar -->
+                <ul class="nav navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Biblioteca</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="libros">Libros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="clientes">Clientes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="nosotros">Nosotros</a>
+                    </li>
+                </ul>
 
-            <li class="nav-item">
-                <a class="nav-link" href="index.php">Inicio</a>
-            </li>
+                <!-- Right Side Of Navbar -->
+                <ul class="navbar-nav ms-auto">
+                    <!-- Authentication Links -->
+                    @guest
+                        @if (Route::has('login'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                        @endif
 
-            <li class="nav-item">
-                <a class="nav-link" href="libros">Libros</a>
-            </li>
+                        @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            </li>
+                        @endif
+                    @else
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                            </a>
 
-            <li class="nav-item">
-                <a class="nav-link" href="nosotros">Nosotros</a>
-            </li>
-        </ul>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                    @endguest
+                </ul>
+            </div>
+        </div>
     </nav>
-    @if (Route::has('login'))
-    <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-        @auth
-            <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
-        @else
-            <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
-
-            @if (Route::has('register'))
-                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-            @endif
-        @endauth
-    </div>
-    @endif
     <div class="container">
     <br/>
         <div class="row">
 
    <div class="jumbotron">
-        <h1 class="display-3">Jumbo heading</h1>
-        <p class="lead">Jumbo helper text</p>
+        <h1 class="display-3">Biblioteca Borges</h1>
+        <p class="lead">Visítanos. Porque se gana mas cuando compartes</p>
         <hr class="my-2">
-        <p>More info</p>
+        <p>Presentación...</p>
         <p class="lead">
-             <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
+             <a class="btn btn-primary btn-lg" href="libros" role="button">Empieza aquí a explorar</a>
         </p>
     </div>
 

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LibroController;
+use App\Http\Controllers\ClienteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,6 +31,7 @@ Route::get('/nosotros', function () {
 
 //Route::get('/catalogo',  [LibroController::class]);  
 Route::resource('libros',  LibroController::class);  
+Route::resource('clientes',  ClienteController::class);  
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');   
 Auth::routes();
