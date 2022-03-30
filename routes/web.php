@@ -15,7 +15,7 @@ use App\Http\Controllers\ClienteController;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('auth.login');
 });
 
 
@@ -36,4 +36,6 @@ Route::resource('clientes',  ClienteController::class);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');   
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::middleware(['auth:sanctum', 'verified'])->get('/admin', function () {
+    return view('admin');
+})->name('admin');
