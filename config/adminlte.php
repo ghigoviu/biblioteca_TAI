@@ -270,11 +270,11 @@ return [
             'submenu' => [
                 [
                     'text' => 'Libros',
-                    'url'  => '#',
+                    'url'  => '/libros',
                 ],
                 [
                     'text'    => 'Clientes',
-                    'url'     => '#',
+                    'url'     => '/clientes',
                     /*
                     'submenu' => [
                         [
