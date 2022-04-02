@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LibroController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ArticuloController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,9 +17,15 @@ use App\Http\Controllers\ClienteController;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('index');
 });
 
+Route::get('catalogo', [ArticuloController::class, "vista"]);
+
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/admin', function () {
+        return view('home');
+        })->name('admin');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
@@ -29,13 +37,12 @@ Route::get('/nosotros', function () {
     return view('about');
 })->name('about');  
 
-//Route::get('/catalogo',  [LibroController::class]);  
 Route::resource('libros',  LibroController::class);  
 Route::resource('clientes',  ClienteController::class);  
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');   
 Auth::routes();
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/admin', function () {
-    return view('admin');
-})->name('admin');
+Route::get('/admin', [AdminController::class, 'index'])
+    ->middleware('auth.admin')
+    ->name('admin.index');

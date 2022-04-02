@@ -1,3 +1,4 @@
+@extends('layouts.app')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,33 +7,33 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/app.css"/>
 
-    
     <title>Catalogo</title>
 </head>
 <body>
-    @if (Route::has('login'))
-    <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-        @auth
-            <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
-        @else
-            <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
-
-            @if (Route::has('register'))
-                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-            @endif
-        @endauth
-     <!--   Cabecera--> 
+    <div>
+    @section('content')
+        <div class="container">
+            <br>
+            <div class="row">
+                <h1>Catálogo</h1>
+                <h2>Encuentra una nueva experiencia</h2>
+                <br>
+                @foreach ($productos as $pro)
+                <div class="col-md-3">
+                    <div class="card">
+                    <img class="card-img-top" src="https://www.w3schools.com/bootstrap4/img_avatar1.png" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title">{{$pro->titulo}}</h4>
+                            <h4 class="card-subtitle">{{$pro->autor}}</h4>
+                            <a name="" id="" class="btn btn-primary" href="" role="button">Ver más </a>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
     </div>
-    @endif
-    <table>
-        @foreach ($productos as $pro)
-        <tr>
-            <td>{{$pro->titulo}} </td>
-            <td>{{$pro->autor}} </td>
-            <td>{{$pro->descripcion}} </td>
-        </tr>
-        @endforeach
-    </table> 
-    <!--   Footer>
+    @endsection
+    <!--   Footer -->
 </body>
 </html>

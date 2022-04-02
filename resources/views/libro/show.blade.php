@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('template_title')
     {{ $libro->name ?? 'Show Libro' }}

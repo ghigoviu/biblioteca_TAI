@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Articulo;
+use App\Models\Libro;
 use Illuminate\Http\Request;
 
 class ArticuloController extends Controller
@@ -13,8 +14,15 @@ class ArticuloController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    { 
+        $articulos =Libro::all();
+        //$articulos =["Libro1", "Libro2", "Libro3"];
+        return view('catalogo')->with('productos', $articulos);
+    }
+
+    function vista(){
+        $articulos =Libro::all();
+        return view('catalogo')->with('productos', $articulos);
     }
 
     /**

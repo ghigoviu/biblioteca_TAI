@@ -20,9 +20,9 @@ return new class extends Migration
             $table->integer('libro_id')->usigned();
             $table->integer('cliente_id')->usigned();
             $table->integer('status_id')->usigned();
-            $table->foreign('libro_id')->references('id')->on('libros');
-            $table->foreign('status_id')->references('id')->on('statuses');
-            $table->foreign('cliente_id')->references('id')->on('clientes');
+            //$table->foreign('libro_id')->references('id')->on('libros');
+            //$table->foreign('status_id')->references('id')->on('statuses');
+            //$table->foreign('cliente_id')->references('id')->on('clientes');
             $table->timestamps();
 
         });

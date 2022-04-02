@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Biblioteca Borges') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -21,35 +21,29 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-blue shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-light-dark bg-primary">
             <div class="container"> 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon">span</span>
                 </button>
-
+            
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
+                     <!--Left Side Of Navbar -->            
                     <ul class="nav navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="/">Biblioteca</a>
+                            <a class="nav-link" href="/">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="libros">Libros</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="clientes">Clientes</a>
+                            <a class="nav-link" href="catalogo">Libros</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="nosotros">Nosotros</a>
                         </li>
                     </ul>
-
-                    <!-- Right Side Of Navbar -->
+                
+                    
                     <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
+                        
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
@@ -85,9 +79,8 @@
                 </div>
             </div>
         </nav>
-
         <main class="py-4">
-            @yield('content')
+            @yield('content') 
         </main>
     </div>
 </body>
