@@ -1,2 +1,12 @@
 Agregar imagenes a libros.
-Aplicar estilos.
+Agregar reportes en pdf
+
+1.- Crea una base de datos llamada ejemplo1.
+2.- Coloca en la terminal 
+    php artisan migrate
+2.- Al terminar el proceso empieza a llenar la base de datos.
+3.- Corre en la terminal
+    php artisan serve
+4.- Uno de los usuarios, cambiale el rol de 'cliente' a 'admin'.
+5.- Vuelve a iniciar sesión con ese usuarios.
+6.- Intenta utilizar los cruds del usuario admin.

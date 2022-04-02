@@ -13,19 +13,18 @@
     <div>
     @section('content')
         <div class="container">
+            <h1 class="display-3">Catálogo</h1>
+            <h2>Encuentra una nueva experiencia</h2>
             <br>
-            <div class="row">
-                <h1>Catálogo</h1>
-                <h2>Encuentra una nueva experiencia</h2>
-                <br>
+                <div class="row">
                 @foreach ($productos as $pro)
                 <div class="col-md-3">
                     <div class="card">
                     <img class="card-img-top" src="https://www.w3schools.com/bootstrap4/img_avatar1.png" alt="">
                         <div class="card-body">
                             <h4 class="card-title">{{$pro->titulo}}</h4>
-                            <h4 class="card-subtitle">{{$pro->autor}}</h4>
-                            <a name="" id="" class="btn btn-primary" href="" role="button">Ver más </a>
+                            <h4 class="display-6">{{$pro->autor}}</h4>
+                            <a name="" id="" class="btn btn-primary" href="" role="button">Ver más</a>
                         </div>
                     </div>
                 </div>
