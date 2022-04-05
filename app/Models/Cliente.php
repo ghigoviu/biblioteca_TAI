@@ -33,6 +33,10 @@ class Cliente extends Model
      */
     protected $fillable = ['nombre','domicilio'];
 
+    public function rentas() {
+      return $this->hasMany("App\Models\Renta");
+    }
+
 
 
 }

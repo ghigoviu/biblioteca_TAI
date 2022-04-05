@@ -38,5 +38,8 @@ class Libro extends Model
     protected $fillable = ['titulo','autor','categoría','descripcion'];
 
 
+    public function rentas() {
+      return $this->hasMany('App\Models\Renta');
+    }
 
 }

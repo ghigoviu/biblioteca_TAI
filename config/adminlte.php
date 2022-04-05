@@ -303,7 +303,7 @@ return [
                 ],
                 [
                     'text' => 'Rentas',
-                    'url'  => '#',
+                    'url'  => '/rentas',
                 ],
             ],
         ],

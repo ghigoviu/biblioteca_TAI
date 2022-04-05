@@ -5,6 +5,7 @@ use App\Http\Controllers\LibroController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArticuloController;
+use App\Http\Controllers\RentaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,6 +44,7 @@ Route::get('/nosotros', function () {
 })->name('about');  
 
 Route::resource('libros',  LibroController::class);  
+Route::resource('rentas',  RentaController::class);  
 Route::resource('clientes',  ClienteController::class);  
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');   

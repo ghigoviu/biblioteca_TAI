@@ -27,11 +27,11 @@
     <div class="container">
         <div class="row">
             <div class="jumbotron">
-                <h1 class="display-3">Biblioteca Borges</h1>
-                <p class="lead">Conócenos. Porque ganamos mas al compartir</p>
+                <h1 class="display-1">Biblioteca Borges</h1>
+                <h2 class="lead">Conócenos. Porque sabemos que ganamos mas al compartir</h2>
                 <hr class="my-2">
-                <p>Somos una organiación que brinda servicio de renta de libros especializados a la comunidad</p>
-                <p>Ven y visita las instalaciones que tenemos para ti.</p>
+                <h3 class="display-6">Somos una organiación que brinda servicio de renta de libros especializados a la comunidad</h3>
+                <h3 class="display-6">Ven y visita las instalaciones que tenemos para ti.</h3>
                 <div class="container mt-3">
 
                     <h2></h2>
