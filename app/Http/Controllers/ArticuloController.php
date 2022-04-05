@@ -25,6 +25,11 @@ class ArticuloController extends Controller
         return view('catalogo')->with('productos', $articulos);
     }
 
+    function ver(){
+        $articulos =Libro::all();
+        return view('index')->with('productos', $articulos);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

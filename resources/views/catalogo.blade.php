@@ -20,11 +20,13 @@
                 @foreach ($productos as $pro)
                 <div class="col-md-3">
                     <div class="card">
-                    <img class="card-img-top" src="https://www.w3schools.com/bootstrap4/img_avatar1.png" alt="">
+                    <img class="card-img-top" 
+                    src={{$pro->imagen}}
+                    alt="Caratula.{{$pro->titulo}}">
                         <div class="card-body">
                             <h4 class="card-title">{{$pro->titulo}}</h4>
                             <h4 class="display-6">{{$pro->autor}}</h4>
-                            <a name="" id="" class="btn btn-primary" href="" role="button">Ver más</a>
+                            <a name="" id="" class="btn btn-primary" href="mostrarlibro/{{$pro->id}}" role="button">Ver más</a>
                         </div>
                     </div>
                 </div>

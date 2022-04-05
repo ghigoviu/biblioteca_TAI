@@ -64,6 +64,14 @@ class LibroController extends Controller
         return view('libro.show', compact('libro'));
     }
 
+    public function mostrar($id)
+    {
+        $libro = Libro::find($id);
+
+        return view('mostrarlibro', ['libro' => Libro::findOrFail($id) ]);
+        //return view('catalogo')->with('productos', $articulos);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

@@ -17,12 +17,15 @@ return new class extends Migration
             $table->id();
             $table->timestamp('fechaini')->nullable();
             $table->timestamp('fechafin')->nullable();
-            $table->integer('libro_id')->usigned();
-            $table->integer('cliente_id')->usigned();
-            $table->integer('status_id')->usigned();
-            //$table->foreign('libro_id')->references('id')->on('libros');
+            $table->integer('libro_id')->usigned()->nullable();
+            $table->integer('cliente_id')->usigned()->nullable();
+            $table->integer('status_id')->usigned()->nullable();
+
+            $table->foreign('libro_id')->references('id')->on('libros')
+            ->ondelete('set null');
             //$table->foreign('status_id')->references('id')->on('statuses');
-            //$table->foreign('cliente_id')->references('id')->on('clientes');
+            $table->foreign('cliente_id')->references('id')->on('clientes') 
+            ->ondelete('set null');
             $table->timestamps();
 
         });

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('autor');
             $table->string('categoría');
             $table->text('descripcion');
+            $table->text('imagen');
             $table->timestamps();
         });
     }

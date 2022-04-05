@@ -16,12 +16,17 @@ use App\Http\Controllers\ArticuloController;
 |
 */
 
+/*
 Route::get('/', function () {
-    return view('index');
+    return view('index')->with();
 });
+*/
+
+Route::get('/', [ArticuloController::class, "ver"]);
 
 Route::get('catalogo', [ArticuloController::class, "vista"]);
 
+Route::get('mostrarlibro/{id}', [LibroController::class, 'mostrar']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/admin', function () {
         return view('home');
